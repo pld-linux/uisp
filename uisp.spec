@@ -20,7 +20,7 @@ Atmel AVR bezpo¶rednio w systemie. Obs³uguje wiele rodzajów
 programatorów.
 
 %prep
-%setup -q %{name}-%{version}
+%setup -q
 
 %build
 %configure
