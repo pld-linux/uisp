@@ -31,12 +31,11 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 install src/uisp $RPM_BUILD_ROOT%{_bindir}
 cp %{SOURCE1} .
 
-gzip -9nf CHANGES INSTALL uisp-parport-connect.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc CHANGES INSTALL uisp-parport-connect.txt
 %attr(755,root,root) %{_bindir}/*
