@@ -5,8 +5,8 @@ Version:	20030618
 Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://medo.fov.uni-mb.si/mapp/uTools/%{name}-%{version}.tar.gz
-# Source0-md5:	3945498181030e6c000f705ac53b920f
+Source0:	http://jubal.westnet.com/AVR/%{name}-%{version}.tar.gz
+# Source0-md5:	0d5d475a5e5f7bb2bfa45e85c3b94af4
 Source1:	http://medo.fov.uni-mb.si/mapp/uTools/uisp-parport-connect.txt
 # NoSource1-md5:	4ce613ab777f3608d4b861e2bdc6a16c
 Patch0:		%{name}-debian.patch
