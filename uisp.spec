@@ -1,14 +1,16 @@
 Summary:	Atmel AVR Micro In-System Programmer
 Summary(pl):	Programator mikrosterowników Atmel AVR
 Name:		uisp
-Version:	1.0b
+Version:	20030618
 Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://medo.fov.uni-mb.si/mapp/uTools/%{name}-%{version}.src.tar.gz
+Source0:	http://medo.fov.uni-mb.si/mapp/uTools/%{name}-%{version}.tar.gz
 # Source0-md5:	3945498181030e6c000f705ac53b920f
 Source1:	http://medo.fov.uni-mb.si/mapp/uTools/uisp-parport-connect.txt
 # NoSource1-md5:	4ce613ab777f3608d4b861e2bdc6a16c
+Patch0:		%{name}-debian.patch
+URL:		http://savannah.nongnu.org/projects/uisp/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -21,10 +23,11 @@ AVR bezpo¶rednio w systemie. Obs³uguje wiele rodzajów programatorów.
 
 %prep
 %setup -q %{name}-%{version}
+%patch0 -p1
 
 %build
-cd src
-%{__make} CC=%{__cc} CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
+%configure2_13
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
