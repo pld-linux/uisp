@@ -1,15 +1,15 @@
 Summary:	Atmel AVR Micro In-System Programmer
 Summary(pl):	Programator mikrosterowników Atmel AVR
 Name:		uisp
-Version:	20030618
+Version:	20040311
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Development/Tools
-Source0:	http://jubal.westnet.com/AVR/%{name}-%{version}.tar.gz
-# Source0-md5:	0d5d475a5e5f7bb2bfa45e85c3b94af4
+Source0:	http://savannah.nongnu.org/download/uisp/%{name}-%{version}.tar.bz2
+# Source0-md5:	ddb3b742d96f85440dfe627d54797f6e
 Source1:	http://medo.fov.uni-mb.si/mapp/uTools/uisp-parport-connect.txt
 # NoSource1-md5:	4ce613ab777f3608d4b861e2bdc6a16c
-Patch0:		%{name}-debian.patch
+#Patch0:		%{name}-debian.patch
 URL:		http://savannah.nongnu.org/projects/uisp/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,10 +23,10 @@ AVR bezpo¶rednio w systemie. Obs³uguje wiele rodzajów programatorów.
 
 %prep
 %setup -q %{name}-%{version}
-%patch0 -p1
+#%%patch0 -p1
 
 %build
-%configure2_13
+%configure
 %{__make}
 
 %install
@@ -36,11 +36,10 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 install src/uisp $RPM_BUILD_ROOT%{_bindir}
 cp %{SOURCE1} .
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES INSTALL uisp-parport-connect.txt
+%doc AUTHORS CHANGES ChangeLog* NEWS TODO uisp-parport-connect.txt
 %attr(755,root,root) %{_bindir}/*
