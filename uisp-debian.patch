@@ -1,0 +1,1918 @@
+--- uisp-20030618.orig/src/Makefile
++++ uisp-20030618/src/Makefile
+@@ -0,0 +1,366 @@
++# Generated automatically from Makefile.in by configure.
++# Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
++
++# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
++# This Makefile.in is free software; the Free Software Foundation
++# gives unlimited permission to copy and/or distribute it,
++# with or without modifications, as long as this notice is preserved.
++
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
++# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
++# PARTICULAR PURPOSE.
++
++#
++# $Id$
++#
++# uisp - The Micro In-System Programmer for Atmel AVR microcontrollers.
++# Copyright (C) 2002  Theodore A. Roth
++#
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++#
++# Makefile.am -- Process this file with automake to produce Makefile.in
++#
++
++
++SHELL = /bin/sh
++
++srcdir = .
++top_srcdir = ..
++prefix = /usr/local
++exec_prefix = ${prefix}
++
++bindir = ${exec_prefix}/bin
++sbindir = ${exec_prefix}/sbin
++libexecdir = ${exec_prefix}/libexec
++datadir = ${prefix}/share
++sysconfdir = ${prefix}/etc
++sharedstatedir = ${prefix}/com
++localstatedir = ${prefix}/var
++libdir = ${exec_prefix}/lib
++infodir = ${prefix}/info
++mandir = ${prefix}/man
++includedir = ${prefix}/include
++oldincludedir = /usr/include
++
++DESTDIR =
++
++pkgdatadir = $(datadir)/uisp
++pkglibdir = $(libdir)/uisp
++pkgincludedir = $(includedir)/uisp
++
++top_builddir = ..
++
++ACLOCAL = /usr/src/uisp/uisp-20030618/config/missing aclocal-1.4
++AUTOCONF = /bin/true
++AUTOMAKE = /usr/src/uisp/uisp-20030618/config/missing automake-1.4
++AUTOHEADER = /bin/true
++
++INSTALL = /usr/bin/install -c
++INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
++INSTALL_DATA = ${INSTALL} -m 644
++INSTALL_SCRIPT = ${INSTALL_PROGRAM}
++transform = s,x,x,
++
++NORMAL_INSTALL = :
++PRE_INSTALL = :
++POST_INSTALL = :
++NORMAL_UNINSTALL = :
++PRE_UNINSTALL = :
++POST_UNINSTALL = :
++CC = gcc
++CXX = c++
++DATE = July, 2003
++MAKEINFO = makeinfo
++PACKAGE = uisp
++VERSION = 20030618
++ac_aux_dir = config
++
++MAINTAINERCLEANFILES = Makefile.in
++
++#SUBDIRS              = 
++#DIST_SUBDIRS         = 
++
++#EXTRA_DIST           = 
++
++# Turn on all warnings and consider them errors. This kinda forces you to have
++# to use gcc, but I'd rather have all warnings eliminated.
++
++AM_CXXFLAGS = -Wall -Werror
++
++bin_PROGRAMS = uisp
++uisp_SOURCES =  	Avr.C              	Avr.h              	AvrAtmel.C         	AvrAtmel.h         	AvrDummy.C         	AvrDummy.h         	DAPA.C             	DAPA.h             	Error.h            	Global.h           	Main.C             	MotIntl.C          	MotIntl.h          	Serial.C           	Serial.h           	Stk500.C           	Stk500.h           	Terminal.C         	Terminal.h         	cygwinp.C          	cygwinp.h          	parport.h          	ppdev.h            	timeradd.h
++
++mkinstalldirs = $(SHELL) $(top_srcdir)/config/mkinstalldirs
++CONFIG_HEADER = config.h
++CONFIG_CLEAN_FILES = 
++PROGRAMS =  $(bin_PROGRAMS)
++
++
++DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I.
++CPPFLAGS = 
++LDFLAGS = 
++LIBS = 
++uisp_OBJECTS =  Avr.o AvrAtmel.o AvrDummy.o DAPA.o Main.o MotIntl.o \
++Serial.o Stk500.o Terminal.o cygwinp.o
++uisp_LDADD = $(LDADD)
++uisp_DEPENDENCIES = 
++uisp_LDFLAGS = 
++CXXFLAGS = -g -O2
++CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
++CXXLD = $(CXX)
++CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
++CFLAGS = -g -O2
++COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
++CCLD = $(CC)
++LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
++DIST_COMMON =  ./stamp-h.in Makefile.am Makefile.in config-h.in
++
++
++DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
++
++TAR = tar
++GZIP_ENV = --best
++SOURCES = $(uisp_SOURCES)
++OBJECTS = $(uisp_OBJECTS)
++
++all: all-redirect
++.SUFFIXES:
++.SUFFIXES: .C .S .c .o .s
++$(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
++	cd $(top_srcdir) && $(AUTOMAKE) --foreign --include-deps src/Makefile
++
++Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
++	cd $(top_builddir) \
++	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
++
++
++config.h: stamp-h
++	@if test ! -f $@; then \
++		rm -f stamp-h; \
++		$(MAKE) stamp-h; \
++	else :; fi
++stamp-h: $(srcdir)/config-h.in $(top_builddir)/config.status
++	cd $(top_builddir) \
++	  && CONFIG_FILES= CONFIG_HEADERS=src/config.h:src/config-h.in \
++	     $(SHELL) ./config.status
++	@echo timestamp > stamp-h 2> /dev/null
++$(srcdir)/config-h.in: $(srcdir)/stamp-h.in
++	@if test ! -f $@; then \
++		rm -f $(srcdir)/stamp-h.in; \
++		$(MAKE) $(srcdir)/stamp-h.in; \
++	else :; fi
++$(srcdir)/stamp-h.in: $(top_srcdir)/configure.in $(ACLOCAL_M4) 
++	cd $(top_srcdir) && $(AUTOHEADER)
++	@echo timestamp > $(srcdir)/stamp-h.in 2> /dev/null
++
++mostlyclean-hdr:
++
++clean-hdr:
++
++distclean-hdr:
++	-rm -f config.h
++
++maintainer-clean-hdr:
++
++mostlyclean-binPROGRAMS:
++
++clean-binPROGRAMS:
++	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
++
++distclean-binPROGRAMS:
++
++maintainer-clean-binPROGRAMS:
++
++install-binPROGRAMS: $(bin_PROGRAMS)
++	@$(NORMAL_INSTALL)
++	$(mkinstalldirs) $(DESTDIR)$(bindir)
++	@list='$(bin_PROGRAMS)'; for p in $$list; do \
++	  if test -f $$p; then \
++	    echo "  $(INSTALL_PROGRAM) $$p $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`"; \
++	     $(INSTALL_PROGRAM) $$p $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
++	  else :; fi; \
++	done
++
++uninstall-binPROGRAMS:
++	@$(NORMAL_UNINSTALL)
++	list='$(bin_PROGRAMS)'; for p in $$list; do \
++	  rm -f $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
++	done
++
++.c.o:
++	$(COMPILE) -c $<
++
++.s.o:
++	$(COMPILE) -c $<
++
++.S.o:
++	$(COMPILE) -c $<
++
++mostlyclean-compile:
++	-rm -f *.o core *.core
++
++clean-compile:
++
++distclean-compile:
++	-rm -f *.tab.c
++
++maintainer-clean-compile:
++
++uisp: $(uisp_OBJECTS) $(uisp_DEPENDENCIES)
++	@rm -f uisp
++	$(CXXLINK) $(uisp_LDFLAGS) $(uisp_OBJECTS) $(uisp_LDADD) $(LIBS)
++.C.o:
++	$(CXXCOMPILE) -c $<
++
++tags: TAGS
++
++ID: $(HEADERS) $(SOURCES) $(LISP)
++	list='$(SOURCES) $(HEADERS)'; \
++	unique=`for i in $$list; do echo $$i; done | \
++	  awk '    { files[$$0] = 1; } \
++	       END { for (i in files) print i; }'`; \
++	here=`pwd` && cd $(srcdir) \
++	  && mkid -f$$here/ID $$unique $(LISP)
++
++TAGS:  $(HEADERS) $(SOURCES) config-h.in $(TAGS_DEPENDENCIES) $(LISP)
++	tags=; \
++	here=`pwd`; \
++	list='$(SOURCES) $(HEADERS)'; \
++	unique=`for i in $$list; do echo $$i; done | \
++	  awk '    { files[$$0] = 1; } \
++	       END { for (i in files) print i; }'`; \
++	test -z "$(ETAGS_ARGS)config-h.in$$unique$(LISP)$$tags" \
++	  || (cd $(srcdir) && etags -o $$here/TAGS $(ETAGS_ARGS) $$tags config-h.in $$unique $(LISP))
++
++mostlyclean-tags:
++
++clean-tags:
++
++distclean-tags:
++	-rm -f TAGS ID
++
++maintainer-clean-tags:
++
++distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
++
++subdir = src
++
++distdir: $(DISTFILES)
++	@for file in $(DISTFILES); do \
++	  d=$(srcdir); \
++	  if test -d $$d/$$file; then \
++	    cp -pr $$d/$$file $(distdir)/$$file; \
++	  else \
++	    test -f $(distdir)/$$file \
++	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
++	    || cp -p $$d/$$file $(distdir)/$$file || :; \
++	  fi; \
++	done
++Avr.o: Avr.C config.h Avr.h Global.h Error.h
++AvrAtmel.o: AvrAtmel.C config.h AvrAtmel.h Global.h Serial.h Error.h \
++	Avr.h
++AvrDummy.o: AvrDummy.C config.h timeradd.h AvrDummy.h Global.h Avr.h \
++	DAPA.h Error.h
++cygwinp.o: cygwinp.C
++DAPA.o: DAPA.C config.h timeradd.h parport.h ppdev.h Global.h Error.h \
++	DAPA.h Avr.h
++Main.o: Main.C config.h Terminal.h MotIntl.h Global.h AvrAtmel.h \
++	Serial.h Error.h Avr.h Stk500.h AvrDummy.h DAPA.h
++MotIntl.o: MotIntl.C config.h timeradd.h Global.h Error.h MotIntl.h
++Serial.o: Serial.C config.h Global.h Serial.h Error.h
++Stk500.o: Stk500.C config.h Stk500.h Global.h Serial.h Error.h Avr.h
++Terminal.o: Terminal.C config.h Global.h Error.h Terminal.h MotIntl.h
++
++info-am:
++info: info-am
++dvi-am:
++dvi: dvi-am
++check-am: all-am
++check: check-am
++installcheck-am:
++installcheck: installcheck-am
++all-recursive-am: config.h
++	$(MAKE) $(AM_MAKEFLAGS) all-recursive
++
++install-exec-am: install-binPROGRAMS
++install-exec: install-exec-am
++
++install-data-am:
++install-data: install-data-am
++
++install-am: all-am
++	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
++install: install-am
++uninstall-am: uninstall-binPROGRAMS
++uninstall: uninstall-am
++all-am: Makefile $(PROGRAMS) config.h
++all-redirect: all-am
++install-strip:
++	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
++installdirs:
++	$(mkinstalldirs)  $(DESTDIR)$(bindir)
++
++
++mostlyclean-generic:
++
++clean-generic:
++
++distclean-generic:
++	-rm -f Makefile $(CONFIG_CLEAN_FILES)
++	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
++
++maintainer-clean-generic:
++	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
++mostlyclean-am:  mostlyclean-hdr mostlyclean-binPROGRAMS \
++		mostlyclean-compile mostlyclean-tags \
++		mostlyclean-generic
++
++mostlyclean: mostlyclean-am
++
++clean-am:  clean-hdr clean-binPROGRAMS clean-compile clean-tags \
++		clean-generic mostlyclean-am
++
++clean: clean-am
++
++distclean-am:  distclean-hdr distclean-binPROGRAMS distclean-compile \
++		distclean-tags distclean-generic clean-am
++
++distclean: distclean-am
++
++maintainer-clean-am:  maintainer-clean-hdr maintainer-clean-binPROGRAMS \
++		maintainer-clean-compile maintainer-clean-tags \
++		maintainer-clean-generic distclean-am
++	@echo "This command is intended for maintainers to use;"
++	@echo "it deletes files that may require special tools to rebuild."
++
++maintainer-clean: maintainer-clean-am
++
++.PHONY: mostlyclean-hdr distclean-hdr clean-hdr maintainer-clean-hdr \
++mostlyclean-binPROGRAMS distclean-binPROGRAMS clean-binPROGRAMS \
++maintainer-clean-binPROGRAMS uninstall-binPROGRAMS install-binPROGRAMS \
++mostlyclean-compile distclean-compile clean-compile \
++maintainer-clean-compile tags mostlyclean-tags distclean-tags \
++clean-tags maintainer-clean-tags distdir info-am info dvi-am dvi check \
++check-am installcheck-am installcheck all-recursive-am install-exec-am \
++install-exec install-data-am install-data install-am install \
++uninstall-am uninstall all-redirect all-am all installdirs \
++mostlyclean-generic distclean-generic clean-generic \
++maintainer-clean-generic clean mostlyclean distclean maintainer-clean
++
++
++# Tell versions [3.59,3.63) of GNU make to not export all variables.
++# Otherwise a system limit (for SysV at least) may be exceeded.
++.NOEXPORT:
+--- uisp-20030618.orig/src/config.h
++++ uisp-20030618/src/config.h
+@@ -0,0 +1,54 @@
++/* src/config.h.  Generated automatically by configure.  */
++/* src/config-h.in.  Generated automatically from configure.in by autoheader 2.13.  */
++
++/* Define to empty if the keyword does not work.  */
++/* #undef const */
++
++/* Define if you don't have vprintf but do have _doprnt.  */
++/* #undef HAVE_DOPRNT */
++
++/* Define if you have the vprintf function.  */
++#define HAVE_VPRINTF 1
++
++/* Define to `unsigned' if <sys/types.h> doesn't define.  */
++/* #undef size_t */
++
++/* Define if you have the ANSI C header files.  */
++#define STDC_HEADERS 1
++
++/* Define if you can safely include both <sys/time.h> and <time.h>.  */
++#define TIME_WITH_SYS_TIME 1
++
++/* Define if you have the gettimeofday function.  */
++#define HAVE_GETTIMEOFDAY 1
++
++/* Define if you have the select function.  */
++#define HAVE_SELECT 1
++
++/* Define if you have the strstr function.  */
++#define HAVE_STRSTR 1
++
++/* Define if you have the strtod function.  */
++#define HAVE_STRTOD 1
++
++/* Define if you have the strtol function.  */
++#define HAVE_STRTOL 1
++
++/* Define if you have the <fcntl.h> header file.  */
++#define HAVE_FCNTL_H 1
++
++/* Define if you have the <sys/ioctl.h> header file.  */
++#define HAVE_SYS_IOCTL_H 1
++
++/* Define if you have the <sys/time.h> header file.  */
++#define HAVE_SYS_TIME_H 1
++
++/* Define if you have the <unistd.h> header file.  */
++#define HAVE_UNISTD_H 1
++
++/* Name of package */
++#define PACKAGE "uisp"
++
++/* Version number of package */
++#define VERSION "20030618"
++
+--- uisp-20030618.orig/src/stamp-h
++++ uisp-20030618/src/stamp-h
+@@ -0,0 +1 @@
++timestamp
+--- uisp-20030618.orig/debian/README.debian
++++ uisp-20030618/debian/README.debian
+@@ -0,0 +1,12 @@
++uisp for DEBIAN
++---------------
++
++If you want to use a parallel-port programmer (such as the STK200)
++with this release, your kernel must have ppdev support.
++
++The ppdev driver will be standard in 2.4.x kernels.  If you're running
++a 2.2.x kernel, a patch is available:
++
++http://people.redhat.com/twaugh/ftp/parport/patch-2.2.17-ppdev1.gz
++
++-- Jefferson E. Noxon <jeff@debian.org>  Sat, 18 Nov 2000 15:09:05 -0600
+--- uisp-20030618.orig/debian/dirs
++++ uisp-20030618/debian/dirs
+@@ -0,0 +1,2 @@
++usr/bin
++usr/share/doc/uisp
+--- uisp-20030618.orig/debian/rules
++++ uisp-20030618/debian/rules
+@@ -0,0 +1,70 @@
++#!/usr/bin/make -f
++# debian/rules for uisp.  GNU copyright 1997-1999 by Joey Hess and others.
++
++# Uncomment this to turn on verbose mode.
++# export DH_VERBOSE=1
++
++# These are used for cross-compiling and for saving the configure script
++# from having to guess our platform (since we know it already)
++DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
++DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
++
++ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
++	CFLAGS += -g
++endif
++ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
++	INSTALL_PROGRAM += -s
++endif
++
++config.status: configure
++	dh_testdir
++	./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info
++
++build: build-stamp
++build-stamp: config.status
++	dh_testdir
++	$(MAKE)
++	touch build-stamp
++
++clean:
++	dh_testdir
++	dh_testroot
++	rm -f build-stamp
++	-$(MAKE) clean
++	dh_clean
++
++install: build-stamp
++	dh_testdir
++	dh_testroot
++	dh_clean -k
++	dh_installdirs
++
++	install -m 755 -o root -g root src/uisp \
++             `pwd`/debian/tmp/usr/bin
++	install -m 644 -o root -g root CHANGES \
++             `pwd`/debian/tmp/usr/share/doc/uisp/changelog
++	install -m 644 -o root -g root debian/changelog \
++             `pwd`/debian/tmp/usr/share/doc/uisp/changelog.Debian
++
++# Build architecture-independent files here.
++binary-indep: build install
++# We have nothing to do by default.
++
++# Build architecture-dependent files here.
++binary-arch: build install
++	dh_testdir
++	dh_testroot
++	dh_installdocs
++	dh_installmanpages
++	dh_installchangelogs
++	dh_strip
++	dh_compress
++	dh_fixperms
++	dh_installdeb
++	dh_shlibdeps
++	dh_gencontrol
++	dh_md5sums
++	dh_builddeb
++
++binary: binary-indep binary-arch
++.PHONY: build clean binary-indep binary-arch binary install
+--- uisp-20030618.orig/debian/copyright
++++ uisp-20030618/debian/copyright
+@@ -0,0 +1,25 @@
++This package was debianized by Jefferson E. Noxon <jeff@debian.org>
++on Sat,  6 Feb 1999 19:20:31 -0600.
++
++It was downloaded from http://savannah.nongnu.org/projects/uisp/
++
++Copyright (C) 1997, 1998, 1999 Uros Platise
++
++This program is free software; you can redistribute it and/or modify 
++it under the terms of the GNU General Public License as published by 
++the Free Software Foundation; either version 2 of the License, or    
++(at your option) any later version.                                  
++
++On Debian GNU/Linux see /usr/share/common-licenses/GPL
++
++The original author can be reached at:
++
++E-mail:		uros.platise@ijs.si
++WWW:		http://medo.fov.uni-mb.si/mapp/
++
++Postal address: Uros Platise
++                Seljakovo naselje 45
++                SI-4000 Kranj
++                Slovenia
++
++Telephone:      +386 64 312 457
+--- uisp-20030618.orig/debian/changelog
++++ uisp-20030618/debian/changelog
+@@ -0,0 +1,83 @@
++uisp (20030618-2) unstable; urgency=low
++
++  * Forgot to update maintainer in control file, fixed.
++
++ -- Jefferson E. Noxon <jeff@debian.org>  Mon, 28 Jul 2003 12:38:24 -0500
++
++uisp (20030618-1) unstable; urgency=low
++
++  * New upstream release
++  * New maintainer
++
++ -- Jefferson E. Noxon <jeff@debian.org>  Thu, 24 Jul 2003 11:08:05 -0500
++
++uisp (20021201-1) unstable; urgency=low
++
++  * New upstream release
++
++ -- Shaun Jackman <sjackman@debian.org>  Mon, 10 Mar 2003 22:41:45 -0800
++
++uisp (20020626-1) unstable; urgency=low
++
++  * New upstream release (closes: #138733)
++  * New upstream location (closes: #148266)
++
++ -- Shaun Jackman <sjackman@debian.org>  Sat,  5 Oct 2002 10:37:54 -0700
++
++uisp (20010701-1.1) unstable; urgency=low
++
++  * NMU
++  * Fix C++ errors.  Closes: #105113.
++
++ -- LaMont Jones <lamont@ia.mmjgroup.com>  Tue, 31 Jul 2001 12:52:38 -0600
++
++uisp (20010701-1) unstable; urgency=low
++
++  * New upstream release (closes: Bug#103003)
++  * New upstream maintainer address in copyright file
++  * New download location noted
++
++ -- Jefferson E. Noxon <jeff@debian.org>  Mon,  2 Jul 2001 16:37:02 -0500
++
++uisp (20001118-1) unstable; urgency=low
++
++  * New upstream release
++  * Add Build-Depends
++
++ -- Jefferson E. Noxon <jeff@debian.org>  Sat, 18 Nov 2000 14:53:23 -0600
++
++uisp (0.1.6-4) frozen unstable; urgency=low
++
++  * Removed PSPI functionality entirely.
++
++ -- Jefferson E. Noxon <jeff@debian.org>  Mon, 10 Apr 2000 16:05:33 -0500
++
++uisp (0.1.6-3.1) frozen unstable; urgency=low
++
++  * NMU
++  * Applied patch from bug report to make this compile on all archs in
++    order to satisy dependencies on packages that are compiled on all
++    archs, closes: #61145
++  * changed control file's arch for the above change
++
++ -- Ben Collins <bcollins@debian.org>  Thu,  6 Apr 2000 23:43:44 -0400
++
++uisp (0.1.6-3) unstable; urgency=low
++
++  * Updated to debian-policy 3.0.1.1
++  * Changed maintainer address
++
++ -- Jefferson E. Noxon <jeff@debian.org>  Tue, 14 Sep 1999 23:53:13 -0500
++
++uisp (0.1.6-2) unstable; urgency=low
++
++  * Changed architecture to i386 (closes bug #36516).  This bug should
++    be fixed in a less drastic way in a future upstream release.
++
++ -- Jefferson E. Noxon <jeff@planetfall.com>  Fri,  2 Jul 1999 20:15:31 -0500
++
++uisp (0.1.6-1) unstable; urgency=low
++
++  * Initial Release.
++
++ -- Jefferson E. Noxon <jeff@planetfall.com>  Sat,  6 Feb 1999 19:19:13 -0600
+--- uisp-20030618.orig/debian/control
++++ uisp-20030618/debian/control
+@@ -0,0 +1,15 @@
++Source: uisp
++Section: electronics
++Priority: extra
++Maintainer: Jefferson E. Noxon <jeff@debian.org>
++Standards-Version: 3.5.6.1
++Build-Depends: debhelper
++
++Package: uisp
++Architecture: any
++Depends: ${shlibs:Depends}
++Description: Micro In-System Programmer for Atmel's AVR MCUs
++ This utility is required to program AVR chips with object code
++ created by the ava assembler/linker, gas, or gcc.  It supports
++ in-system programming, Atmel's prototype board/programmer (stk500),
++ and an extremely low-cost parallel port programmer.
+--- uisp-20030618.orig/debian/watch
++++ uisp-20030618/debian/watch
+@@ -0,0 +1,3 @@
++# watch control file for uscan
++# Site           Directory       Pattern                 Version Script
++http://savannah.nongnu.org /download/uisp/ uisp-(.*)\\.tar\\.gz debian uupdate
+--- uisp-20030618.orig/debian/uisp.1
++++ uisp-20030618/debian/uisp.1
+@@ -0,0 +1,176 @@
++.TH UISP "1" "October 2002" "uisp version 20020626" "User Commands"
++.SH NAME
++uisp \- manual page for uisp
++.SH SYNOPSIS
++.B uisp
++[\fIOPTION\fR]... \fI-dprog=TYPE\fR \fI-dpart=AT90XXX\fR \fI--FUNCTION\fR... [\fIif=SOURCE\fR] [\fIof=DEST\fR]
++.SH DESCRIPTION
++.IP
++.SS "Programming Methods:"
++\fB\-dprog\fR=avr910|pavr|stk500
++.RS
++.TP
++avr910
++Standard Atmel Serial Programmer/Atmel Low Cost Programmer
++.TP
++pavr
++http://avr.jpk.co.nz/pavr/pavr.html
++.TP
++stk500
++Atmel STK500
++.RE
++.HP
++\fB\-dprog\fR=dapa|stk200|abb|avrisp|bsd|fbprg|dt006|maxi|dasa|dasa2
++.RS
++.TP
++dapa
++Direct AVR Parallel Access
++.TP
++stk200
++Parallel Starter Kit STK200, STK300
++.TP
++abb
++Altera ByteBlasterMV Parallel Port Download Cable
++.TP
++avrisp
++Atmel AVR ISP (?)
++.TP
++bsd
++http://www.bsdhome.com/avrprog/ (parallel)
++.TP
++fbprg
++http://ln.com.ua/~real/avreal/adapters.html (parallel)
++.TP
++dt006
++http://www.dontronics.com/dt006.html (parallel)
++.TP
++maxi
++Investment Technologies Maxi (parallel)
++.TP
++dasa
++serial (RESET=RTS SCK=DTR MOSI=TXD MISO=CTS)
++.TP
++dasa2
++serial (RESET=!TXD SCK=RTS MOSI=DTR MISO=CTS)
++.RE
++.SS "Parallel Device Settings:"
++.TP
++\fB\-dlpt\fR
++specify device name (Linux ppdev, FreeBSD ppi, serial)
++or direct I/O parallel port address (0x378, 0x278, 0x3BC)
++.TP
++\fB\-dno\-poll\fR
++Program without data polling (a little slower)
++.TP
++\fB\-dno\-retry\fR
++Disable retries of program enable command
++.TP
++\fB\-dvoltage\fR
++Set timing specs according to the power supply voltage in [V]
++(default 3.0)
++.TP
++\fB\-dt_sck\fR
++Set minimum SCK high/low time in micro-seconds (default 5)
++.TP
++\fB\-dt_wd_flash\fR
++Set FLASH maximum write delay time in micro-seconds
++.TP
++\fB\-dt_wd_eeprom\fR
++Set EEPROM maximum write delay time in micro-seconds
++.TP
++\fB\-dt_reset\fR
++Set reset inactive (high) time in micro-seconds
++.TP
++\fB\-dinvert\fR
++Invert specified lines
++Use \fB\-v\fR=\fI3\fR option to see current settings.
++.SS "Atmel Low Cost Programmer Serial Device Settings:"
++.TP
++\fB\-dserial\fR
++Set serial interface as /dev/ttyS* (default /dev/avr)
++.TP
++\fB\-dpart\fR
++Set target abbreviated name or number
++If \fB\-dpart\fR is not given programmer's supported devices
++are listed. Set \fB\-dpart\fR=\fIauto\fR for auto-select.
++.TP
++\fB\-dspeed\fR
++Set speed of the serial interface (default 19200)
++.SS "Functions:"
++.TP
++\fB\-\-upload\fR
++Upload "input_file" to the AVR memory.
++.TP
++\fB\-\-verify\fR
++Verify "input_file" (processed after the \fB\-\-upload\fR opt.)
++.TP
++\fB\-\-download\fR
++Download AVR memory to "output_file" or stdout.
++.TP
++\fB\-\-erase\fR
++Erase device.
++.TP
++\fB\-\-segment\fR
++Set active segment (auto-select for AVA Motorola output)
++.SS "Fuse/Lock Bit Operations:"
++.TP
++\fB\-\-rd_fuses\fR
++Read all fuses and print values to stdout
++.TP
++\fB\-\-wr_fuse_l\fR
++Write fuse low byte
++.TP
++\fB\-\-wr_fuse_h\fR
++Write fuse high byte
++.TP
++\fB\-\-wr_fuse_e\fR
++Write fuse extended byte
++.TP
++\fB\-\-wr_lock\fR
++Write lock bits. Argument is a byte where each bit is:
++ Bit5 -> blb12
++ Bit4 -> blb11
++ Bit3 -> blb02
++ Bit2 -> blb01
++ Bit1 -> lb2
++ Bit0 -> lb1
++.TP
++\fB\-\-lock\fR
++Write lock bits [old method; deprecated].
++.SS "Files:"
++.TP
++if
++Input file for the \fB\-\-upload\fR and \fB\-\-verify\fR functions in
++Motorola S-records (S1 or S2) or 16 bit Intel format
++.TP
++of
++Output file for the \fB\-\-download\fR function in
++Motorola S-records format, default is standard output
++.SS "Other Options:"
++.TP
++\fB\-v\fR
++Set verbose level (-v equals \fB\-v\fR=\fI2\fR, min/max: 0/3, default 1)
++.TP
++\fB\-\-hash\fR
++Print hash (default is 32 bytes)
++.TP
++\fB\-\-help\fR \fB\-h\fR
++Help
++.TP
++\fB\-\-version\fR
++Print version information
++.TP
++\fB\-\-terminal\fR
++Invoke shell-like terminal
++.SH "AUTHOR"
++Written by Uros Platise.
++.SH "REPORTING BUGS"
++Report bugs to <uisp-dev@mail.freesoftware.fsf.org>
++.SH "SEE ALSO"
++http://freesoftware.fsf.org/download/uisp/
++.SH "COPYRIGHT"
++(c) 1997-1999 Uros Platise, 2000-2002 Marek Michalkiewicz
++.PP
++uisp is free software, covered by the GNU General Public License.
++You are welcome to change it and/or distribute copies of it under
++the conditions of the GNU General Public License.
+--- uisp-20030618.orig/debian/manpages
++++ uisp-20030618/debian/manpages
+@@ -0,0 +1 @@
++debian/uisp.1
+--- uisp-20030618.orig/config.log
++++ uisp-20030618/config.log
+@@ -0,0 +1,62 @@
++This file contains any messages produced by compilers while
++running configure, to aid debugging if configure makes a mistake.
++
++configure:560: checking for a BSD compatible install
++configure:613: checking whether build environment is sane
++configure:670: checking whether make -j3 sets ${MAKE}
++configure:716: checking for working aclocal-1.4
++configure:729: checking for working autoconf
++configure:742: checking for working automake-1.4
++configure:755: checking for working autoheader
++configure:768: checking for working makeinfo
++configure:783: checking for autoconf-2.13
++configure:812: checking for gcc
++configure:925: checking whether the C compiler (gcc  ) works
++configure:941: gcc -o conftest    conftest.c  1>&5
++configure:967: checking whether the C compiler (gcc  ) is a cross-compiler
++configure:972: checking whether we are using GNU C
++configure:981: gcc -E conftest.c
++configure:1000: checking whether gcc accepts -g
++configure:1036: checking for c++
++configure:1068: checking whether the C++ compiler (c++  ) works
++configure:1084: c++ -o conftest    conftest.C  1>&5
++configure:1110: checking whether the C++ compiler (c++  ) is a cross-compiler
++configure:1115: checking whether we are using GNU C++
++configure:1124: c++ -E conftest.C
++configure:1143: checking whether c++ accepts -g
++configure:1186: checking for a BSD compatible install
++configure:1241: checking how to run the C preprocessor
++configure:1262: gcc -E  conftest.c >/dev/null 2>conftest.out
++configure:1321: checking for ANSI C header files
++configure:1334: gcc -E  conftest.c >/dev/null 2>conftest.out
++configure:1401: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1428: checking for fcntl.h
++configure:1438: gcc -E  conftest.c >/dev/null 2>conftest.out
++configure:1428: checking for sys/ioctl.h
++configure:1438: gcc -E  conftest.c >/dev/null 2>conftest.out
++configure:1428: checking for sys/time.h
++configure:1438: gcc -E  conftest.c >/dev/null 2>conftest.out
++configure:1428: checking for unistd.h
++configure:1438: gcc -E  conftest.c >/dev/null 2>conftest.out
++configure:1466: checking for working const
++configure:1520: gcc -c -g -O2  conftest.c 1>&5
++configure:1541: checking for size_t
++configure:1574: checking whether time.h and sys/time.h may both be included
++configure:1588: gcc -c -g -O2  conftest.c 1>&5
++configure:1611: checking whether gcc needs -traditional
++configure:1657: checking for 8-bit clean memcmp
++configure:1675: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1693: checking for vprintf
++configure:1721: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1705: warning: conflicting types for built-in function `vprintf'
++configure:1800: checking for gettimeofday
++configure:1828: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1800: checking for select
++configure:1828: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1800: checking for strstr
++configure:1828: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1812: warning: conflicting types for built-in function `strstr'
++configure:1800: checking for strtol
++configure:1828: gcc -o conftest -g -O2   conftest.c  1>&5
++configure:1800: checking for strtod
++configure:1828: gcc -o conftest -g -O2   conftest.c  1>&5
+--- uisp-20030618.orig/config.cache
++++ uisp-20030618/config.cache
+@@ -0,0 +1,43 @@
++# This file is a shell script that caches the results of configure
++# tests run on this system so they can be shared between configure
++# scripts and configure runs.  It is not useful on other systems.
++# If it contains results you don't want to keep, you may remove or edit it.
++#
++# By default, configure uses ./config.cache as the cache file,
++# creating it if it does not exist already.  You can give configure
++# the --cache-file=FILE option to use a different cache file; that is
++# what configure does when it calls configure scripts in
++# subdirectories, so they share the cache.
++# Giving --cache-file=/dev/null disables caching, for debugging configure.
++# config.status only pays attention to the cache file if you give it the
++# --recheck option to rerun configure.
++#
++ac_cv_c_const=${ac_cv_c_const=yes}
++ac_cv_func_gettimeofday=${ac_cv_func_gettimeofday=yes}
++ac_cv_func_memcmp_clean=${ac_cv_func_memcmp_clean=yes}
++ac_cv_func_select=${ac_cv_func_select=yes}
++ac_cv_func_strstr=${ac_cv_func_strstr=yes}
++ac_cv_func_strtod=${ac_cv_func_strtod=yes}
++ac_cv_func_strtol=${ac_cv_func_strtol=yes}
++ac_cv_func_vprintf=${ac_cv_func_vprintf=yes}
++ac_cv_header_fcntl_h=${ac_cv_header_fcntl_h=yes}
++ac_cv_header_stdc=${ac_cv_header_stdc=yes}
++ac_cv_header_sys_ioctl_h=${ac_cv_header_sys_ioctl_h=yes}
++ac_cv_header_sys_time_h=${ac_cv_header_sys_time_h=yes}
++ac_cv_header_time=${ac_cv_header_time=yes}
++ac_cv_header_unistd_h=${ac_cv_header_unistd_h=yes}
++ac_cv_path_install=${ac_cv_path_install='/usr/bin/install -c'}
++ac_cv_prog_CC=${ac_cv_prog_CC=gcc}
++ac_cv_prog_CPP=${ac_cv_prog_CPP='gcc -E'}
++ac_cv_prog_CXX=${ac_cv_prog_CXX=c++}
++ac_cv_prog_cc_cross=${ac_cv_prog_cc_cross=no}
++ac_cv_prog_cc_g=${ac_cv_prog_cc_g=yes}
++ac_cv_prog_cc_works=${ac_cv_prog_cc_works=yes}
++ac_cv_prog_cxx_cross=${ac_cv_prog_cxx_cross=no}
++ac_cv_prog_cxx_g=${ac_cv_prog_cxx_g=yes}
++ac_cv_prog_cxx_works=${ac_cv_prog_cxx_works=yes}
++ac_cv_prog_gcc=${ac_cv_prog_gcc=yes}
++ac_cv_prog_gcc_traditional=${ac_cv_prog_gcc_traditional=no}
++ac_cv_prog_gxx=${ac_cv_prog_gxx=yes}
++ac_cv_prog_make_make_set=${ac_cv_prog_make_make_set=yes}
++ac_cv_type_size_t=${ac_cv_type_size_t=yes}
+--- uisp-20030618.orig/config.status
++++ uisp-20030618/config.status
+@@ -0,0 +1,296 @@
++#! /bin/sh
++# Generated automatically by configure.
++# Run this file to recreate the current configuration.
++# This directory was configured as follows,
++# on host hedgehog:
++#
++# ./configure 
++#
++# Compiler output produced by configure, useful for debugging
++# configure, is in ./config.log if it exists.
++
++ac_cs_usage="Usage: ./config.status [--recheck] [--version] [--help]"
++for ac_option
++do
++  case "$ac_option" in
++  -recheck | --recheck | --rechec | --reche | --rech | --rec | --re | --r)
++    echo "running ${CONFIG_SHELL-/bin/sh} ./configure  --no-create --no-recursion"
++    exec ${CONFIG_SHELL-/bin/sh} ./configure  --no-create --no-recursion ;;
++  -version | --version | --versio | --versi | --vers | --ver | --ve | --v)
++    echo "./config.status generated by autoconf version 2.13"
++    exit 0 ;;
++  -help | --help | --hel | --he | --h)
++    echo "$ac_cs_usage"; exit 0 ;;
++  *) echo "$ac_cs_usage"; exit 1 ;;
++  esac
++done
++
++ac_given_srcdir=.
++ac_given_INSTALL="/usr/bin/install -c"
++
++trap 'rm -fr 	src/Makefile 	uisp.1 	uisp.spec 	Makefile src/config.h conftest*; exit 1' 1 2 15
++
++# Protect against being on the right side of a sed subst in config.status.
++sed 's/%@/@@/; s/@%/@@/; s/%g$/@g/; /@g$/s/[\\&%]/\\&/g;
++ s/@@/%@/; s/@@/@%/; s/@g$/%g/' > conftest.subs <<\CEOF
++/^[ 	]*VPATH[ 	]*=[^:]*$/d
++
++s%@SHELL@%/bin/sh%g
++s%@CFLAGS@%-g -O2%g
++s%@CPPFLAGS@%%g
++s%@CXXFLAGS@%-g -O2%g
++s%@FFLAGS@%%g
++s%@DEFS@%-DHAVE_CONFIG_H%g
++s%@LDFLAGS@%%g
++s%@LIBS@%%g
++s%@exec_prefix@%${prefix}%g
++s%@prefix@%/usr/local%g
++s%@program_transform_name@%s,x,x,%g
++s%@bindir@%${exec_prefix}/bin%g
++s%@sbindir@%${exec_prefix}/sbin%g
++s%@libexecdir@%${exec_prefix}/libexec%g
++s%@datadir@%${prefix}/share%g
++s%@sysconfdir@%${prefix}/etc%g
++s%@sharedstatedir@%${prefix}/com%g
++s%@localstatedir@%${prefix}/var%g
++s%@libdir@%${exec_prefix}/lib%g
++s%@includedir@%${prefix}/include%g
++s%@oldincludedir@%/usr/include%g
++s%@infodir@%${prefix}/info%g
++s%@mandir@%${prefix}/man%g
++s%@INSTALL_PROGRAM@%${INSTALL}%g
++s%@INSTALL_SCRIPT@%${INSTALL_PROGRAM}%g
++s%@INSTALL_DATA@%${INSTALL} -m 644%g
++s%@PACKAGE@%uisp%g
++s%@VERSION@%20030618%g
++s%@ACLOCAL@%/usr/src/uisp/uisp-20030618/config/missing aclocal-1.4%g
++s%@AUTOCONF@%/bin/true%g
++s%@AUTOMAKE@%/usr/src/uisp/uisp-20030618/config/missing automake-1.4%g
++s%@AUTOHEADER@%/bin/true%g
++s%@MAKEINFO@%makeinfo%g
++s%@SET_MAKE@%%g
++s%@CC@%gcc%g
++s%@CXX@%c++%g
++s%@CPP@%gcc -E%g
++s%@LIBOBJS@%%g
++s%@ac_aux_dir@%config%g
++s%@DATE@%July, 2003%g
++
++CEOF
++
++# Split the substitutions into bite-sized pieces for seds with
++# small command number limits, like on Digital OSF/1 and HP-UX.
++ac_max_sed_cmds=90 # Maximum number of lines to put in a sed script.
++ac_file=1 # Number of current file.
++ac_beg=1 # First line for current file.
++ac_end=$ac_max_sed_cmds # Line after last line for current file.
++ac_more_lines=:
++ac_sed_cmds=""
++while $ac_more_lines; do
++  if test $ac_beg -gt 1; then
++    sed "1,${ac_beg}d; ${ac_end}q" conftest.subs > conftest.s$ac_file
++  else
++    sed "${ac_end}q" conftest.subs > conftest.s$ac_file
++  fi
++  if test ! -s conftest.s$ac_file; then
++    ac_more_lines=false
++    rm -f conftest.s$ac_file
++  else
++    if test -z "$ac_sed_cmds"; then
++      ac_sed_cmds="sed -f conftest.s$ac_file"
++    else
++      ac_sed_cmds="$ac_sed_cmds | sed -f conftest.s$ac_file"
++    fi
++    ac_file=`expr $ac_file + 1`
++    ac_beg=$ac_end
++    ac_end=`expr $ac_end + $ac_max_sed_cmds`
++  fi
++done
++if test -z "$ac_sed_cmds"; then
++  ac_sed_cmds=cat
++fi
++
++CONFIG_FILES=${CONFIG_FILES-"	src/Makefile 	uisp.1 	uisp.spec 	Makefile"}
++for ac_file in .. $CONFIG_FILES; do if test "x$ac_file" != x..; then
++  # Support "outfile[:infile[:infile...]]", defaulting infile="outfile.in".
++  case "$ac_file" in
++  *:*) ac_file_in=`echo "$ac_file"|sed 's%[^:]*:%%'`
++       ac_file=`echo "$ac_file"|sed 's%:.*%%'` ;;
++  *) ac_file_in="${ac_file}.in" ;;
++  esac
++
++  # Adjust a relative srcdir, top_srcdir, and INSTALL for subdirectories.
++
++  # Remove last slash and all that follows it.  Not all systems have dirname.
++  ac_dir=`echo $ac_file|sed 's%/[^/][^/]*$%%'`
++  if test "$ac_dir" != "$ac_file" && test "$ac_dir" != .; then
++    # The file is in a subdirectory.
++    test ! -d "$ac_dir" && mkdir "$ac_dir"
++    ac_dir_suffix="/`echo $ac_dir|sed 's%^\./%%'`"
++    # A "../" for each directory in $ac_dir_suffix.
++    ac_dots=`echo $ac_dir_suffix|sed 's%/[^/]*%../%g'`
++  else
++    ac_dir_suffix= ac_dots=
++  fi
++
++  case "$ac_given_srcdir" in
++  .)  srcdir=.
++      if test -z "$ac_dots"; then top_srcdir=.
++      else top_srcdir=`echo $ac_dots|sed 's%/$%%'`; fi ;;
++  /*) srcdir="$ac_given_srcdir$ac_dir_suffix"; top_srcdir="$ac_given_srcdir" ;;
++  *) # Relative path.
++    srcdir="$ac_dots$ac_given_srcdir$ac_dir_suffix"
++    top_srcdir="$ac_dots$ac_given_srcdir" ;;
++  esac
++
++  case "$ac_given_INSTALL" in
++  [/$]*) INSTALL="$ac_given_INSTALL" ;;
++  *) INSTALL="$ac_dots$ac_given_INSTALL" ;;
++  esac
++
++  echo creating "$ac_file"
++  rm -f "$ac_file"
++  configure_input="Generated automatically from `echo $ac_file_in|sed 's%.*/%%'` by configure."
++  case "$ac_file" in
++  *Makefile*) ac_comsub="1i\\
++# $configure_input" ;;
++  *) ac_comsub= ;;
++  esac
++
++  ac_file_inputs=`echo $ac_file_in|sed -e "s%^%$ac_given_srcdir/%" -e "s%:% $ac_given_srcdir/%g"`
++  sed -e "$ac_comsub
++s%@configure_input@%$configure_input%g
++s%@srcdir@%$srcdir%g
++s%@top_srcdir@%$top_srcdir%g
++s%@INSTALL@%$INSTALL%g
++" $ac_file_inputs | (eval "$ac_sed_cmds") > $ac_file
++fi; done
++rm -f conftest.s*
++
++# These sed commands are passed to sed as "A NAME B NAME C VALUE D", where
++# NAME is the cpp macro being defined and VALUE is the value it is being given.
++#
++# ac_d sets the value in "#define NAME VALUE" lines.
++ac_dA='s%^\([ 	]*\)#\([ 	]*define[ 	][ 	]*\)'
++ac_dB='\([ 	][ 	]*\)[^ 	]*%\1#\2'
++ac_dC='\3'
++ac_dD='%g'
++# ac_u turns "#undef NAME" with trailing blanks into "#define NAME VALUE".
++ac_uA='s%^\([ 	]*\)#\([ 	]*\)undef\([ 	][ 	]*\)'
++ac_uB='\([ 	]\)%\1#\2define\3'
++ac_uC=' '
++ac_uD='\4%g'
++# ac_e turns "#undef NAME" without trailing blanks into "#define NAME VALUE".
++ac_eA='s%^\([ 	]*\)#\([ 	]*\)undef\([ 	][ 	]*\)'
++ac_eB='$%\1#\2define\3'
++ac_eC=' '
++ac_eD='%g'
++
++if test "${CONFIG_HEADERS+set}" != set; then
++  CONFIG_HEADERS="src/config.h:src/config-h.in"
++fi
++for ac_file in .. $CONFIG_HEADERS; do if test "x$ac_file" != x..; then
++  # Support "outfile[:infile[:infile...]]", defaulting infile="outfile.in".
++  case "$ac_file" in
++  *:*) ac_file_in=`echo "$ac_file"|sed 's%[^:]*:%%'`
++       ac_file=`echo "$ac_file"|sed 's%:.*%%'` ;;
++  *) ac_file_in="${ac_file}.in" ;;
++  esac
++
++  echo creating $ac_file
++
++  rm -f conftest.frag conftest.in conftest.out
++  ac_file_inputs=`echo $ac_file_in|sed -e "s%^%$ac_given_srcdir/%" -e "s%:% $ac_given_srcdir/%g"`
++  cat $ac_file_inputs > conftest.in
++
++  cat > conftest.frag <<CEOF
++${ac_dA}PACKAGE${ac_dB}PACKAGE${ac_dC}"uisp"${ac_dD}
++${ac_uA}PACKAGE${ac_uB}PACKAGE${ac_uC}"uisp"${ac_uD}
++${ac_eA}PACKAGE${ac_eB}PACKAGE${ac_eC}"uisp"${ac_eD}
++${ac_dA}VERSION${ac_dB}VERSION${ac_dC}"20030618"${ac_dD}
++${ac_uA}VERSION${ac_uB}VERSION${ac_uC}"20030618"${ac_uD}
++${ac_eA}VERSION${ac_eB}VERSION${ac_eC}"20030618"${ac_eD}
++${ac_dA}STDC_HEADERS${ac_dB}STDC_HEADERS${ac_dC}1${ac_dD}
++${ac_uA}STDC_HEADERS${ac_uB}STDC_HEADERS${ac_uC}1${ac_uD}
++${ac_eA}STDC_HEADERS${ac_eB}STDC_HEADERS${ac_eC}1${ac_eD}
++${ac_dA}HAVE_FCNTL_H${ac_dB}HAVE_FCNTL_H${ac_dC}1${ac_dD}
++${ac_uA}HAVE_FCNTL_H${ac_uB}HAVE_FCNTL_H${ac_uC}1${ac_uD}
++${ac_eA}HAVE_FCNTL_H${ac_eB}HAVE_FCNTL_H${ac_eC}1${ac_eD}
++CEOF
++  sed -f conftest.frag conftest.in > conftest.out
++  rm -f conftest.in
++  mv conftest.out conftest.in
++
++  cat > conftest.frag <<CEOF
++${ac_dA}HAVE_SYS_IOCTL_H${ac_dB}HAVE_SYS_IOCTL_H${ac_dC}1${ac_dD}
++${ac_uA}HAVE_SYS_IOCTL_H${ac_uB}HAVE_SYS_IOCTL_H${ac_uC}1${ac_uD}
++${ac_eA}HAVE_SYS_IOCTL_H${ac_eB}HAVE_SYS_IOCTL_H${ac_eC}1${ac_eD}
++${ac_dA}HAVE_SYS_TIME_H${ac_dB}HAVE_SYS_TIME_H${ac_dC}1${ac_dD}
++${ac_uA}HAVE_SYS_TIME_H${ac_uB}HAVE_SYS_TIME_H${ac_uC}1${ac_uD}
++${ac_eA}HAVE_SYS_TIME_H${ac_eB}HAVE_SYS_TIME_H${ac_eC}1${ac_eD}
++${ac_dA}HAVE_UNISTD_H${ac_dB}HAVE_UNISTD_H${ac_dC}1${ac_dD}
++${ac_uA}HAVE_UNISTD_H${ac_uB}HAVE_UNISTD_H${ac_uC}1${ac_uD}
++${ac_eA}HAVE_UNISTD_H${ac_eB}HAVE_UNISTD_H${ac_eC}1${ac_eD}
++${ac_dA}TIME_WITH_SYS_TIME${ac_dB}TIME_WITH_SYS_TIME${ac_dC}1${ac_dD}
++${ac_uA}TIME_WITH_SYS_TIME${ac_uB}TIME_WITH_SYS_TIME${ac_uC}1${ac_uD}
++${ac_eA}TIME_WITH_SYS_TIME${ac_eB}TIME_WITH_SYS_TIME${ac_eC}1${ac_eD}
++CEOF
++  sed -f conftest.frag conftest.in > conftest.out
++  rm -f conftest.in
++  mv conftest.out conftest.in
++
++  cat > conftest.frag <<CEOF
++${ac_dA}HAVE_VPRINTF${ac_dB}HAVE_VPRINTF${ac_dC}1${ac_dD}
++${ac_uA}HAVE_VPRINTF${ac_uB}HAVE_VPRINTF${ac_uC}1${ac_uD}
++${ac_eA}HAVE_VPRINTF${ac_eB}HAVE_VPRINTF${ac_eC}1${ac_eD}
++${ac_dA}HAVE_GETTIMEOFDAY${ac_dB}HAVE_GETTIMEOFDAY${ac_dC}1${ac_dD}
++${ac_uA}HAVE_GETTIMEOFDAY${ac_uB}HAVE_GETTIMEOFDAY${ac_uC}1${ac_uD}
++${ac_eA}HAVE_GETTIMEOFDAY${ac_eB}HAVE_GETTIMEOFDAY${ac_eC}1${ac_eD}
++${ac_dA}HAVE_SELECT${ac_dB}HAVE_SELECT${ac_dC}1${ac_dD}
++${ac_uA}HAVE_SELECT${ac_uB}HAVE_SELECT${ac_uC}1${ac_uD}
++${ac_eA}HAVE_SELECT${ac_eB}HAVE_SELECT${ac_eC}1${ac_eD}
++${ac_dA}HAVE_STRSTR${ac_dB}HAVE_STRSTR${ac_dC}1${ac_dD}
++${ac_uA}HAVE_STRSTR${ac_uB}HAVE_STRSTR${ac_uC}1${ac_uD}
++${ac_eA}HAVE_STRSTR${ac_eB}HAVE_STRSTR${ac_eC}1${ac_eD}
++CEOF
++  sed -f conftest.frag conftest.in > conftest.out
++  rm -f conftest.in
++  mv conftest.out conftest.in
++
++  cat > conftest.frag <<CEOF
++${ac_dA}HAVE_STRTOL${ac_dB}HAVE_STRTOL${ac_dC}1${ac_dD}
++${ac_uA}HAVE_STRTOL${ac_uB}HAVE_STRTOL${ac_uC}1${ac_uD}
++${ac_eA}HAVE_STRTOL${ac_eB}HAVE_STRTOL${ac_eC}1${ac_eD}
++${ac_dA}HAVE_STRTOD${ac_dB}HAVE_STRTOD${ac_dC}1${ac_dD}
++${ac_uA}HAVE_STRTOD${ac_uB}HAVE_STRTOD${ac_uC}1${ac_uD}
++${ac_eA}HAVE_STRTOD${ac_eB}HAVE_STRTOD${ac_eC}1${ac_eD}
++s%^[ 	]*#[ 	]*undef[ 	][ 	]*[a-zA-Z_][a-zA-Z_0-9]*%/* & */%
++CEOF
++  sed -f conftest.frag conftest.in > conftest.out
++  rm -f conftest.in
++  mv conftest.out conftest.in
++
++  rm -f conftest.frag conftest.h
++  echo "/* $ac_file.  Generated automatically by configure.  */" > conftest.h
++  cat conftest.in >> conftest.h
++  rm -f conftest.in
++  if cmp -s $ac_file conftest.h 2>/dev/null; then
++    echo "$ac_file is unchanged"
++    rm -f conftest.h
++  else
++    # Remove last slash and all that follows it.  Not all systems have dirname.
++      ac_dir=`echo $ac_file|sed 's%/[^/][^/]*$%%'`
++      if test "$ac_dir" != "$ac_file" && test "$ac_dir" != .; then
++      # The file is in a subdirectory.
++      test ! -d "$ac_dir" && mkdir "$ac_dir"
++    fi
++    rm -f $ac_file
++    mv conftest.h $ac_file
++  fi
++fi; done
++
++
++
++test -z "$CONFIG_HEADERS" || echo timestamp > src/stamp-h
++
++exit 0
+--- uisp-20030618.orig/uisp.1
++++ uisp-20030618/uisp.1
+@@ -0,0 +1,200 @@
++.TH UISP "1" "July, 2003" "uisp version 20030618" "User Commands"
++.SH NAME
++uisp \- manual page for uisp
++.SH SYNOPSIS
++.B uisp
++[\fIOPTION\fR].. \fI-dprog=TYPE\fR \fI-dpart=AT90XXX\fR \fI--FUNCTION\fR.. [\fIif=SOURCE\fR] [\fIof=DEST\fR]
++.SH DESCRIPTION
++.IP
++.SS "Programming Methods:"
++\fB\-dprog\fR=avr910|pavr|stk500
++.RS
++.TP
++avr910
++Standard Atmel Serial Programmer/Atmel Low Cost Programmer
++.TP
++pavr
++http://www.avr1.org/pavr/pavr.html
++.TP
++stk500
++Atmel STK500
++.RE
++.HP
++\fB\-dprog\fR=dapa|stk200|abb|avrisp|bsd|fbprg|dt006|maxi|dasa|dasa2
++.RS
++.TP
++dapa
++Direct AVR Parallel Access
++.TP
++stk200
++Parallel Starter Kit STK200, STK300
++.TP
++abb
++Altera ByteBlasterMV Parallel Port Download Cable
++.TP
++avrisp
++Atmel AVR ISP (?)
++.TP
++bsd
++http://www.bsdhome.com/avrdude/ (parallel)
++.TP
++fbprg
++http://ln.com.ua/~real/avreal/adapters.html (parallel)
++.TP
++dt006
++http://www.dontronics.com/dt006.html (parallel)
++.TP
++maxi
++Investment Technologies Maxi (parallel)
++.TP
++dasa
++serial (RESET=RTS SCK=DTR MOSI=TXD MISO=CTS)
++.TP
++dasa2
++serial (RESET=!TXD SCK=RTS MOSI=DTR MISO=CTS)
++.RE
++.SS "Target Device Selection:"
++.TP
++\fB\-dpart\fR=part
++Set target abbreviated name or number. For some programmers, if
++\fB\-dpart\fR is not given programmer's supported devices are listed. Set
++\fB\-dpart\fR=\fIauto\fR for auto-select. Auto-select does not work with
++all programmers, so it is recommended to always specify a target device
++explicitly.
++.SS "Parallel Device Settings:"
++.TP
++\fB\-dlpt\fR=address|device name
++specify device name (Linux ppdev, FreeBSD ppi, serial)
++or direct I/O parallel port address (0x378, 0x278, 0x3BC)
++.TP
++\fB\-dno\-poll\fR
++Program without data polling (a little slower)
++.TP
++\fB\-dno\-retry\fR
++Disable retries of program enable command
++.TP
++\fB\-dvoltage\fR=value
++Set timing specs according to the power supply voltage in [V]
++(default 3.0)
++.TP
++\fB\-dt_sck\fR=time
++Set minimum SCK high/low time in micro-seconds (default 5)
++.TP
++\fB\-dt_wd_flash\fR=time
++Set FLASH maximum write delay time in micro-seconds
++.TP
++\fB\-dt_wd_eeprom\fR=time
++Set EEPROM maximum write delay time in micro-seconds
++.TP
++\fB\-dt_reset\fR=time
++Set reset inactive (high) time in micro-seconds
++.TP
++\fB\-dinvert\fR=[sck[,mosi[,miso[,reset]]]]]
++Invert specified lines
++Use \fB\-v\fR=\fI3\fR option to see current settings.
++.SS "Atmel Low Cost Programmer Serial Device Settings:"
++.TP
++\fB\-dserial\fR=device name
++Set serial interface as /dev/ttyS* (default /dev/avr)
++.TP
++\fB\-dspeed\fR=1200|2400|4800|9600|19200|38400|57600|115200
++Set speed of the serial interface (default 19200)
++.SS "Stk500 specific options:"
++.TP
++\fB\-dparallel\fR
++Use Hi-V parallel programming instead of serial (default is serial)
++.TP
++\fB\-\-rd_aref\fR
++Read the ARef Voltage. Note that due to a bug in the stk500 firmware, the read
++value is sometimes off by 0.1 from the actual value measured with a volt meter.
++.TP
++\fB\-\-rd_vtg\fR
++Read the Vtarget Voltage. Note that due to a bug in the stk500 firmware, the
++read value is sometimes off by 0.1 from the actual value measured with a volt
++meter.
++.TP
++\fB\-\-wr_aref\fR=value
++Set the ARef Voltage. Valid values are 0.0 to 6.0 volts in 0.1 volt increments.
++Value can not be larger than the VTarget value.
++.TP
++\fB\-\-wr_vtg\fR=value
++Set the VTarget Voltage. Valid values are 0.0 to 6.0 volts in 0.1 volt
++increments.  Value can not be smaller than the ARef value.
++.SS "Functions:"
++.TP
++\fB\-\-upload\fR
++Upload "input_file" to the AVR memory.
++.TP
++\fB\-\-verify\fR
++Verify "input_file" (processed after the \fB\-\-upload\fR opt.)
++.TP
++\fB\-\-download\fR
++Download AVR memory to "output_file" or stdout.
++.TP
++\fB\-\-erase\fR
++Erase device.
++.TP
++\fB\-\-segment\fR=flash|eeprom|fuse
++Set active segment (auto-select for AVA Motorola output)
++.SS "Fuse/Lock Bit Operations:"
++.TP
++\fB\-\-rd_fuses\fR
++Read all fuses and print values to stdout
++.TP
++\fB\-\-wr_fuse_l\fR=byte
++Write fuse low byte
++.TP
++\fB\-\-wr_fuse_h\fR=byte
++Write fuse high byte
++.TP
++\fB\-\-wr_fuse_e\fR=byte
++Write fuse extended byte
++.TP
++\fB\-\-wr_lock\fR=byte
++Write lock bits. Argument is a byte where each bit is:
++ Bit5 -> blb12
++ Bit4 -> blb11
++ Bit3 -> blb02
++ Bit2 -> blb01
++ Bit1 -> lb2
++ Bit0 -> lb1
++.TP
++\fB\-\-lock\fR
++Write lock bits [old method; deprecated].
++.SS "Files:"
++.TP
++\fBif\fR=filename
++Input file for the \fB\-\-upload\fR and \fB\-\-verify\fR functions in
++Motorola S-records (S1 or S2) or 16 bit Intel format
++.TP
++\fBof\fR=filename
++Output file for the \fB\-\-download\fR function in
++Motorola S-records format, default is standard output
++.SS "Other Options:"
++.TP
++\fB\-v\fR=level
++Set verbose level (-v equals \fB\-v\fR=\fI2\fR, min/max: 0/4, default 1)
++.TP
++\fB\-\-hash\fR=perbytes
++Print hash (default is 32 bytes)
++.TP
++\fB\-\-help\fR \fB\-h\fR
++Help
++.TP
++\fB\-\-version\fR
++Print version information
++.TP
++\fB\-\-terminal\fR
++Invoke shell-like terminal
++.SH "AUTHOR"
++Written by Uros Platise.
++.SH "REPORTING BUGS"
++Report bugs to <uisp-dev@nongnu.org>
++.SH "SEE ALSO"
++http://savannah.nongnu.org/download/uisp/
++.SH "COPYRIGHT"
++(c) 1997-1999 Uros Platise, 2000-2003 Marek Michalkiewicz
++.PP
++uisp is free software, covered by the GNU General Public License.  You are
++welcome to change it and/or distribute copies of it under the conditions of
++the GNU General Public License.
+--- uisp-20030618.orig/Makefile
++++ uisp-20030618/Makefile
+@@ -0,0 +1,458 @@
++# Generated automatically from Makefile.in by configure.
++# Makefile.in generated automatically by automake 1.4-p6 from Makefile.am
++
++# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
++# This Makefile.in is free software; the Free Software Foundation
++# gives unlimited permission to copy and/or distribute it,
++# with or without modifications, as long as this notice is preserved.
++
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
++# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
++# PARTICULAR PURPOSE.
++
++#
++# $Id$
++#
++# uisp - The Micro In-System Programmer for Atmel AVR microcontrollers.
++# Copyright (C) 2002  Theodore A. Roth
++#
++# This program is free software; you can redistribute it and/or modify
++# it under the terms of the GNU General Public License as published by
++# the Free Software Foundation; either version 2 of the License, or
++# (at your option) any later version.
++#
++# This program is distributed in the hope that it will be useful,
++# but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with this program; if not, write to the Free Software
++# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++#
++# Makefile.am -- Process this file with automake to produce Makefile.in
++#
++
++
++SHELL = /bin/sh
++
++srcdir = .
++top_srcdir = .
++prefix = /usr/local
++exec_prefix = ${prefix}
++
++bindir = ${exec_prefix}/bin
++sbindir = ${exec_prefix}/sbin
++libexecdir = ${exec_prefix}/libexec
++datadir = ${prefix}/share
++sysconfdir = ${prefix}/etc
++sharedstatedir = ${prefix}/com
++localstatedir = ${prefix}/var
++libdir = ${exec_prefix}/lib
++infodir = ${prefix}/info
++mandir = ${prefix}/man
++includedir = ${prefix}/include
++oldincludedir = /usr/include
++
++DESTDIR =
++
++pkgdatadir = $(datadir)/uisp
++pkglibdir = $(libdir)/uisp
++pkgincludedir = $(includedir)/uisp
++
++top_builddir = .
++AUTOCONF = /bin/true
++AUTOMAKE = /usr/src/uisp/uisp-20030618/config/missing automake-1.4
++AUTOHEADER = /bin/true
++
++INSTALL = /usr/bin/install -c
++INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
++INSTALL_DATA = ${INSTALL} -m 644
++INSTALL_SCRIPT = ${INSTALL_PROGRAM}
++transform = s,x,x,
++
++NORMAL_INSTALL = :
++PRE_INSTALL = :
++POST_INSTALL = :
++NORMAL_UNINSTALL = :
++PRE_UNINSTALL = :
++POST_UNINSTALL = :
++CC = gcc
++CXX = c++
++DATE = July, 2003
++MAKEINFO = makeinfo
++PACKAGE = uisp
++VERSION = 20030618
++ac_aux_dir = config
++
++auxdir = config
++AUX_DIST = $(auxdir)/install-sh $(auxdir)/missing                        $(auxdir)/mkinstalldirs $(auxdir)/README
++
++
++man_MANS = uisp.1
++
++AUX_DIST_EXTRA = 
++EXTRA_DIST = bootstrap config acconfig.h                        CHANGES CHANGES.old                        kernel/patch-2.2.17-ppdev1.gz                        pavr/Makefile pavr/pavr.c                        doc/HOWTO.windows doc/README.stk500                        doc/README.xilinx                        doc/uisp-parport-connect.txt                        uisp.1.in 
++
++
++AUTOMAKE_OPTIONS = foreign
++
++SUBDIRS = src
++DIST_SUBDIRS = src
++
++MAINTAINERCLEANFILES = Makefile.in aclocal.m4 configure src/config-h.in                        src/stamp-h.in $(AUX_DIST)
++
++
++ACLOCAL = aclocal -I $(auxdir)
++
++install_aux_files = AUTHORS ChangeLog COPYING INSTALL CHANGES CHANGES.old                        TODO
++
++
++DOC_INST_DIR = $(DESTDIR)$(datadir)/doc/uisp-$(VERSION)
++ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
++mkinstalldirs = $(SHELL) $(top_srcdir)/config/mkinstalldirs
++CONFIG_HEADER = ./src/config.h
++CONFIG_CLEAN_FILES =  uisp.1 uisp.spec
++man1dir = $(mandir)/man1
++MANS = $(man_MANS)
++
++NROFF = nroff
++DIST_COMMON =  AUTHORS COPYING ChangeLog INSTALL Makefile.am Makefile.in \
++NEWS TODO acconfig.h aclocal.m4 configure configure.in src/config-h.in \
++src/stamp-h.in uisp.1.in uisp.spec.in
++
++
++DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
++
++TAR = tar
++GZIP_ENV = --best
++all: all-redirect
++.SUFFIXES:
++$(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
++	cd $(top_srcdir) && $(AUTOMAKE) --foreign --include-deps Makefile
++
++Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
++	cd $(top_builddir) \
++	  && CONFIG_FILES=$@ CONFIG_HEADERS= $(SHELL) ./config.status
++
++$(ACLOCAL_M4):  configure.in 
++	cd $(srcdir) && $(ACLOCAL)
++
++config.status: $(srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
++	$(SHELL) ./config.status --recheck
++$(srcdir)/configure: $(srcdir)/configure.in $(ACLOCAL_M4) $(CONFIGURE_DEPENDENCIES)
++	cd $(srcdir) && $(AUTOCONF)
++
++src/config.h: src/stamp-h
++	@if test ! -f $@; then \
++		rm -f src/stamp-h; \
++		$(MAKE) src/stamp-h; \
++	else :; fi
++src/stamp-h: $(srcdir)/src/config-h.in $(top_builddir)/config.status
++	cd $(top_builddir) \
++	  && CONFIG_FILES= CONFIG_HEADERS=src/config.h:src/config-h.in \
++	     $(SHELL) ./config.status
++	@echo timestamp > src/stamp-h 2> /dev/null
++$(srcdir)/src/config-h.in: $(srcdir)/src/stamp-h.in
++	@if test ! -f $@; then \
++		rm -f $(srcdir)/src/stamp-h.in; \
++		$(MAKE) $(srcdir)/src/stamp-h.in; \
++	else :; fi
++$(srcdir)/src/stamp-h.in: $(top_srcdir)/configure.in $(ACLOCAL_M4) acconfig.h
++	cd $(top_srcdir) && $(AUTOHEADER)
++	@echo timestamp > $(srcdir)/src/stamp-h.in 2> /dev/null
++
++mostlyclean-hdr:
++
++clean-hdr:
++
++distclean-hdr:
++	-rm -f src/config.h
++
++maintainer-clean-hdr:
++uisp.1: $(top_builddir)/config.status uisp.1.in
++	cd $(top_builddir) && CONFIG_FILES=$@ CONFIG_HEADERS= $(SHELL) ./config.status
++uisp.spec: $(top_builddir)/config.status uisp.spec.in
++	cd $(top_builddir) && CONFIG_FILES=$@ CONFIG_HEADERS= $(SHELL) ./config.status
++
++install-man1:
++	$(mkinstalldirs) $(DESTDIR)$(man1dir)
++	@list='$(man1_MANS)'; \
++	l2='$(man_MANS)'; for i in $$l2; do \
++	  case "$$i" in \
++	    *.1*) list="$$list $$i" ;; \
++	  esac; \
++	done; \
++	for i in $$list; do \
++	  if test -f $(srcdir)/$$i; then file=$(srcdir)/$$i; \
++	  else file=$$i; fi; \
++	  ext=`echo $$i | sed -e 's/^.*\\.//'`; \
++	  inst=`echo $$i | sed -e 's/\\.[0-9a-z]*$$//'`; \
++	  inst=`echo $$inst | sed '$(transform)'`.$$ext; \
++	  echo " $(INSTALL_DATA) $$file $(DESTDIR)$(man1dir)/$$inst"; \
++	  $(INSTALL_DATA) $$file $(DESTDIR)$(man1dir)/$$inst; \
++	done
++
++uninstall-man1:
++	@list='$(man1_MANS)'; \
++	l2='$(man_MANS)'; for i in $$l2; do \
++	  case "$$i" in \
++	    *.1*) list="$$list $$i" ;; \
++	  esac; \
++	done; \
++	for i in $$list; do \
++	  ext=`echo $$i | sed -e 's/^.*\\.//'`; \
++	  inst=`echo $$i | sed -e 's/\\.[0-9a-z]*$$//'`; \
++	  inst=`echo $$inst | sed '$(transform)'`.$$ext; \
++	  echo " rm -f $(DESTDIR)$(man1dir)/$$inst"; \
++	  rm -f $(DESTDIR)$(man1dir)/$$inst; \
++	done
++install-man: $(MANS)
++	@$(NORMAL_INSTALL)
++	$(MAKE) $(AM_MAKEFLAGS) install-man1
++uninstall-man:
++	@$(NORMAL_UNINSTALL)
++	$(MAKE) $(AM_MAKEFLAGS) uninstall-man1
++
++# This directory's subdirectories are mostly independent; you can cd
++# into them and run `make' without going through this Makefile.
++# To change the values of `make' variables: instead of editing Makefiles,
++# (1) if the variable is set in `config.status', edit `config.status'
++#     (which will cause the Makefiles to be regenerated when you run `make');
++# (2) otherwise, pass the desired values on the `make' command line.
++
++
++
++all-recursive install-data-recursive install-exec-recursive \
++installdirs-recursive install-recursive uninstall-recursive  \
++check-recursive installcheck-recursive info-recursive dvi-recursive:
++	@set fnord $(MAKEFLAGS); amf=$$2; \
++	dot_seen=no; \
++	target=`echo $@ | sed s/-recursive//`; \
++	list='$(SUBDIRS)'; for subdir in $$list; do \
++	  echo "Making $$target in $$subdir"; \
++	  if test "$$subdir" = "."; then \
++	    dot_seen=yes; \
++	    local_target="$$target-am"; \
++	  else \
++	    local_target="$$target"; \
++	  fi; \
++	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
++	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
++	done; \
++	if test "$$dot_seen" = "no"; then \
++	  $(MAKE) $(AM_MAKEFLAGS) "$$target-am" || exit 1; \
++	fi; test -z "$$fail"
++
++mostlyclean-recursive clean-recursive distclean-recursive \
++maintainer-clean-recursive:
++	@set fnord $(MAKEFLAGS); amf=$$2; \
++	dot_seen=no; \
++	rev=''; list='$(SUBDIRS)'; for subdir in $$list; do \
++	  rev="$$subdir $$rev"; \
++	  test "$$subdir" != "." || dot_seen=yes; \
++	done; \
++	test "$$dot_seen" = "no" && rev=". $$rev"; \
++	target=`echo $@ | sed s/-recursive//`; \
++	for subdir in $$rev; do \
++	  echo "Making $$target in $$subdir"; \
++	  if test "$$subdir" = "."; then \
++	    local_target="$$target-am"; \
++	  else \
++	    local_target="$$target"; \
++	  fi; \
++	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
++	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
++	done && test -z "$$fail"
++tags-recursive:
++	list='$(SUBDIRS)'; for subdir in $$list; do \
++	  test "$$subdir" = . || (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) tags); \
++	done
++
++tags: TAGS
++
++ID: $(HEADERS) $(SOURCES) $(LISP)
++	list='$(SOURCES) $(HEADERS)'; \
++	unique=`for i in $$list; do echo $$i; done | \
++	  awk '    { files[$$0] = 1; } \
++	       END { for (i in files) print i; }'`; \
++	here=`pwd` && cd $(srcdir) \
++	  && mkid -f$$here/ID $$unique $(LISP)
++
++TAGS: tags-recursive $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
++	tags=; \
++	here=`pwd`; \
++	list='$(SUBDIRS)'; for subdir in $$list; do \
++   if test "$$subdir" = .; then :; else \
++	    test -f $$subdir/TAGS && tags="$$tags -i $$here/$$subdir/TAGS"; \
++   fi; \
++	done; \
++	list='$(SOURCES) $(HEADERS)'; \
++	unique=`for i in $$list; do echo $$i; done | \
++	  awk '    { files[$$0] = 1; } \
++	       END { for (i in files) print i; }'`; \
++	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
++	  || (cd $(srcdir) && etags -o $$here/TAGS $(ETAGS_ARGS) $$tags  $$unique $(LISP))
++
++mostlyclean-tags:
++
++clean-tags:
++
++distclean-tags:
++	-rm -f TAGS ID
++
++maintainer-clean-tags:
++
++distdir = $(PACKAGE)-$(VERSION)
++top_distdir = $(distdir)
++
++# This target untars the dist file and tries a VPATH configuration.  Then
++# it guarantees that the distribution is self-contained by making another
++# tarfile.
++distcheck: dist
++	-rm -rf $(distdir)
++	GZIP=$(GZIP_ENV) $(TAR) zxf $(distdir).tar.gz
++	mkdir $(distdir)/=build
++	mkdir $(distdir)/=inst
++	dc_install_base=`cd $(distdir)/=inst && pwd`; \
++	cd $(distdir)/=build \
++	  && ../configure --srcdir=.. --prefix=$$dc_install_base \
++	  && $(MAKE) $(AM_MAKEFLAGS) \
++	  && $(MAKE) $(AM_MAKEFLAGS) dvi \
++	  && $(MAKE) $(AM_MAKEFLAGS) check \
++	  && $(MAKE) $(AM_MAKEFLAGS) install \
++	  && $(MAKE) $(AM_MAKEFLAGS) installcheck \
++	  && $(MAKE) $(AM_MAKEFLAGS) dist
++	-rm -rf $(distdir)
++	@banner="$(distdir).tar.gz is ready for distribution"; \
++	dashes=`echo "$$banner" | sed s/./=/g`; \
++	echo "$$dashes"; \
++	echo "$$banner"; \
++	echo "$$dashes"
++dist: distdir
++	-chmod -R a+r $(distdir)
++	GZIP=$(GZIP_ENV) $(TAR) chozf $(distdir).tar.gz $(distdir)
++	-rm -rf $(distdir)
++dist-all: distdir
++	-chmod -R a+r $(distdir)
++	GZIP=$(GZIP_ENV) $(TAR) chozf $(distdir).tar.gz $(distdir)
++	-rm -rf $(distdir)
++distdir: $(DISTFILES)
++	-rm -rf $(distdir)
++	mkdir $(distdir)
++	-chmod 777 $(distdir)
++	$(mkinstalldirs) $(distdir)/doc $(distdir)/kernel $(distdir)/pavr
++	@for file in $(DISTFILES); do \
++	  d=$(srcdir); \
++	  if test -d $$d/$$file; then \
++	    cp -pr $$d/$$file $(distdir)/$$file; \
++	  else \
++	    test -f $(distdir)/$$file \
++	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
++	    || cp -p $$d/$$file $(distdir)/$$file || :; \
++	  fi; \
++	done
++	for subdir in $(DIST_SUBDIRS); do \
++	  if test "$$subdir" = .; then :; else \
++	    test -d $(distdir)/$$subdir \
++	    || mkdir $(distdir)/$$subdir \
++	    || exit 1; \
++	    chmod 777 $(distdir)/$$subdir; \
++	    (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) top_distdir=../$(distdir) distdir=../$(distdir)/$$subdir distdir) \
++	      || exit 1; \
++	  fi; \
++	done
++	$(MAKE) $(AM_MAKEFLAGS) top_distdir="$(top_distdir)" distdir="$(distdir)" dist-hook
++info-am:
++info: info-recursive
++dvi-am:
++dvi: dvi-recursive
++check-am: all-am
++check: check-recursive
++installcheck-am:
++installcheck: installcheck-recursive
++install-exec-am:
++install-exec: install-exec-recursive
++
++install-data-am: install-man install-data-local
++install-data: install-data-recursive
++
++install-am: all-am
++	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
++install: install-recursive
++uninstall-am: uninstall-man uninstall-local
++uninstall: uninstall-recursive
++all-am: Makefile $(MANS)
++all-redirect: all-recursive
++install-strip:
++	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
++installdirs: installdirs-recursive
++installdirs-am:
++	$(mkinstalldirs)  $(DESTDIR)$(mandir)/man1
++
++
++mostlyclean-generic:
++
++clean-generic:
++
++distclean-generic:
++	-rm -f Makefile $(CONFIG_CLEAN_FILES)
++	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
++
++maintainer-clean-generic:
++	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
++mostlyclean-am:  mostlyclean-hdr mostlyclean-tags mostlyclean-generic
++
++mostlyclean: mostlyclean-recursive
++
++clean-am:  clean-hdr clean-tags clean-generic mostlyclean-am
++
++clean: clean-recursive
++
++distclean-am:  distclean-hdr distclean-tags distclean-generic clean-am
++
++distclean: distclean-recursive
++	-rm -f config.status
++
++maintainer-clean-am:  maintainer-clean-hdr maintainer-clean-tags \
++		maintainer-clean-generic distclean-am
++	@echo "This command is intended for maintainers to use;"
++	@echo "it deletes files that may require special tools to rebuild."
++
++maintainer-clean: maintainer-clean-recursive
++	-rm -f config.status
++
++.PHONY: mostlyclean-hdr distclean-hdr clean-hdr maintainer-clean-hdr \
++install-man1 uninstall-man1 install-man uninstall-man \
++install-data-recursive uninstall-data-recursive install-exec-recursive \
++uninstall-exec-recursive installdirs-recursive uninstalldirs-recursive \
++all-recursive check-recursive installcheck-recursive info-recursive \
++dvi-recursive mostlyclean-recursive distclean-recursive clean-recursive \
++maintainer-clean-recursive tags tags-recursive mostlyclean-tags \
++distclean-tags clean-tags maintainer-clean-tags distdir info-am info \
++dvi-am dvi check check-am installcheck-am installcheck install-exec-am \
++install-exec install-data-local install-data-am install-data install-am \
++install uninstall-local uninstall-am uninstall all-redirect all-am all \
++installdirs-am installdirs mostlyclean-generic distclean-generic \
++clean-generic maintainer-clean-generic clean mostlyclean distclean \
++maintainer-clean
++
++
++install-data-local:
++	$(mkinstalldirs) $(DOC_INST_DIR)
++	for file in $(install_aux_files) ; do \
++	  echo " $(INSTALL_DATA) $$file $(DOC_INST_DIR)/$$file"; \
++	  $(INSTALL_DATA) $(srcdir)/$$file $(DOC_INST_DIR)/$$file; \
++	done
++
++uninstall-local:
++	rm -rf $(DOC_INST_DIR)
++
++dist-hook: uisp.spec
++	cp uisp.spec $(distdir)/uisp.spec
++	rm -rf $(distdir)/config/CVS
++
++# Tell versions [3.59,3.63) of GNU make to not export all variables.
++# Otherwise a system limit (for SysV at least) may be exceeded.
++.NOEXPORT:
