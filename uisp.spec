@@ -8,7 +8,7 @@ Group:		Development/Tools
 Source0:	http://medo.fov.uni-mb.si/mapp/uTools/%{name}-%{version}.src.tar.gz
 # Source0-md5:	3945498181030e6c000f705ac53b920f
 Source1:	http://medo.fov.uni-mb.si/mapp/uTools/uisp-parport-connect.txt
-# Source1-md5:	4ce613ab777f3608d4b861e2bdc6a16c
+# NoSource1-md5:	4ce613ab777f3608d4b861e2bdc6a16c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
