@@ -1,5 +1,5 @@
 Summary:	Atmel AVR Micro In-System Programmer
-Summary(pl.UTF-8):   Programator mikrosterowników Atmel AVR
+Summary(pl.UTF-8):	Programator mikrosterowników Atmel AVR
 Name:		uisp
 Version:	20050207
 Release:	2
