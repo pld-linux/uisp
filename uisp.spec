@@ -1,5 +1,5 @@
 Summary:	Atmel AVR Micro In-System Programmer
-Summary(pl):	Programator mikrosterowników Atmel AVR
+Summary(pl.UTF-8):   Programator mikrosterownikÃ³w Atmel AVR
 Name:		uisp
 Version:	20050207
 Release:	2
@@ -15,10 +15,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 uisp allows to program contents of Atmel AVR's flash memory in-system.
 It supports many types programmers.
 
-%description -l pl
-uisp pozwala programowaæ zawarto¶æ pamiêci flash mikrosterowników
-Atmel AVR bezpo¶rednio w systemie. Obs³uguje wiele rodzajów
-programatorów.
+%description -l pl.UTF-8
+uisp pozwala programowaÄ‡ zawartoÅ›Ä‡ pamiÄ™ci flash mikrosterownikÃ³w
+Atmel AVR bezpoÅ›rednio w systemie. ObsÅ‚uguje wiele rodzajÃ³w
+programatorÃ³w.
 
 %prep
 %setup -q
